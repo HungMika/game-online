@@ -7,6 +7,17 @@ export const InputForm = () => {
   const [price, setPrice] = useState("");
 
   //useCallback hạn chế re-render mỗi khi onChange input form
+  const onInputchange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e.target.name === "prodName") {
+        setName(e.target.value);
+      }
+      if (e.target.name === "prodPrice") {
+        setPrice(e.target.value);
+      }
+    },
+    []
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +42,7 @@ export const InputForm = () => {
           name="prodName"
           value={name}
           placeholder="tên sản phẩm"
-          onChange={(e) => setName(e.target.value)}
+          onChange={onInputchange}
         />
         <input
           className="border-black border-2"
@@ -39,7 +50,7 @@ export const InputForm = () => {
           name="prodPrice"
           value={price}
           placeholder="Giá trị sản phẩm"
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={onInputchange}
         />
         <button className="bg-blue-600 rounded-md text-white">Add</button>
       </form>
