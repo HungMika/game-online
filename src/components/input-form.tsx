@@ -39,10 +39,12 @@ export const InputForm = () => {
     <div className="bg-white px-4 pb-4 rounded-md">
       <form
         onSubmit={handlesubmit}
-        className="w-full h-full flex flex-col space-y-2.5 py-2 text-gray-500"
+        className="w-full h-full flex flex-col items-center space-y-2.5 py-2 text-gray-500"
       >
+        <h2 className="text-blue-700"><strong>QUẢN LÝ SẢN PHẨM</strong></h2>
+        <br />
         <input
-          className="border-black border-2"
+          className="border-black border-2 w-full"
           type="text"
           name="prodName"
           value={prodName}
@@ -50,14 +52,14 @@ export const InputForm = () => {
           onChange={onInputChange}
         />
         <input
-          className="border-black border-2"
+          className="border-black border-2 w-full"
           type="text"
           name="prodPrice"
           value={prodPrice}
           placeholder="Giá trị sản phẩm"
           onChange={onInputChange}
         />
-        <button className="bg-blue-600 rounded-md text-white">Add</button>
+        <button className="bg-blue-600 rounded-md text-white w-full">Thêm</button>
       </form>
       <OutputForm products = {products || []}/>
     </div>
